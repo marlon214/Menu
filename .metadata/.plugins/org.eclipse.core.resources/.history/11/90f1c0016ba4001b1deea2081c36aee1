@@ -1,0 +1,19 @@
+package MenuApp;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Application {
+		public static void main(String[] args) {
+			String connectionString = "jdbc:mysql://localhost:3306/employees";
+			
+			try {
+				Connection connect = DriverManager.getConnection(connectionString, "root", "Black426!");
+			}catch (SQLException e) {
+				System.out.println("Success!");
+				e.printStackTrace();
+			}
+		}
+
+}

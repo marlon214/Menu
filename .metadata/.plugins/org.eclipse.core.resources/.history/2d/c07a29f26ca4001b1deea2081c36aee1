@@ -1,0 +1,29 @@
+Create database if not exists food;
+
+use food;
+
+drop table if exists Appetizers;
+drop table if exists Entrees;
+drop table if exists Desserts;
+
+create table Appetizers (
+	id int(15) not null auto_increment,
+	dishName varchar(20) not null,
+    price decimal(3,2) not null,
+    primary key(id)
+    
+);
+create table Entrees (
+	id int(15) not null auto_increment,
+	dishName varchar(20) not null,
+    price decimal(3,2) not null,
+    primary key(id)
+    
+);
+create table Desserts (
+	id int(15) not null auto_increment,
+	dishName varchar(20) not null,
+    price decimal(3,2) not null,
+    primary key(id)
+    
+);

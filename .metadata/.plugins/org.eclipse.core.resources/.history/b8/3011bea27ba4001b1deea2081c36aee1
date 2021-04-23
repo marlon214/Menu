@@ -1,0 +1,52 @@
+package MenuApp;
+
+import java.util.Scanner;
+
+public class Menu {
+	private Scanner scanner = new Scanner(System.in);
+	public void start() {
+		// TODO Auto-generated method stub
+		String select = "";
+		do {
+			printMenu();
+			select = scanner.nextLine();
+			if (selection.equals("1")) {
+				creAppetizers();
+			}
+			if (selection.equals("2")) {
+				creaAppetizers();
+			}
+			if (selection.equals("3")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			if (selection.equals("1")) {
+				createAppetizers();
+			}
+			}
+			
+		} while
+		
+	}
+
+}

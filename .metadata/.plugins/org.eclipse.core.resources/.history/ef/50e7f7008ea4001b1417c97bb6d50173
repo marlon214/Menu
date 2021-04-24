@@ -16,7 +16,6 @@ public class Menu {
 		String select = "";
 		do {
 			printMenu();
-			select = scanner.nextLine();
 			
 			if (select.equals("1")) {
 				displayAppetizers();
@@ -46,7 +45,7 @@ public class Menu {
 				deleteDesserts();
 			}
 			
-			System.out.println("");
+			select = scanner.nextLine();
 			
 			
 		} while (!select.equals("-1"));
@@ -56,11 +55,11 @@ public class Menu {
 		
 	}
 
-	private void printMenu() {
+	private <options> void printMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("Please Select an Options:");
 		for (int i=0;i<options.size(); i++) {
-			System.out.println(i+1+ ". " + options.get(i));
+			System.out.println(i+1);
 		}
 	}
 

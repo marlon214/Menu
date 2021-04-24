@@ -56,6 +56,51 @@ public class Menu {
 		
 	}
 
+	private void deleteDesserts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void createDesserts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void displayDesserts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void deleteEntrees() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void createEntrees() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void displayEntrees() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void deleteAppetizers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void createAppetizers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void displayAppetizers() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void printMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("Please Select an Options:");

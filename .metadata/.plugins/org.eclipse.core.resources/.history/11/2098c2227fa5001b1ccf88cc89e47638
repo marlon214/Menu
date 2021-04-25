@@ -13,10 +13,10 @@ import entity.Desserts;
 import entity.Entrees;
 
 public class Menu {
-	private AppetizersDAO AppetizersDao= new AppetizersDAO();
-	private EntreesDAO EntreesDao= new EntreesDAO();
-	private DessertsDAO DessertsDao= new DessertsDAO();
-	
+	private AppetizersDAO AppetizersDao;
+	private EntreesDAO EntreesDao;
+	private DessertsDAO DessertsDao;
+
 	private Scanner scanner = new Scanner(System.in);
 	private List<String> options = Arrays.asList("Display Appetizer", "Create Appetizers", "Delete Appetizers",
 			"Display Entrees", "Create Entrees", "Delete Entrees", "Display Desserts", "Create Desserts",

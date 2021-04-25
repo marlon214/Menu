@@ -4,7 +4,7 @@ public class Appetizers {
 	private int AId;
 	private String AName;
 	private double APrice;
-	
+
 	public Appetizers(int AId, String AName, double APrice) {
 		this.setAId(AId);
 		this.setAName(AName);
@@ -34,6 +34,5 @@ public class Appetizers {
 	public void setAPrice(double aPrice) {
 		APrice = aPrice;
 	}
-	
-	
+
 }

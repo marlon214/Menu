@@ -1,10 +1,9 @@
 package MenuApp;
 
 public class Application {
-		public static void main(String[] args) {
-			Menu menu= new Menu();
-			menu.start();
-			
-			}
+	public static void main(String[] args) {
+		Menu menu = new Menu();
+		menu.start();
+	}
 
 }

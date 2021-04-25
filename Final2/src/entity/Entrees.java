@@ -4,7 +4,7 @@ public class Entrees {
 	private int EId;
 	private String EName;
 	private double EPrice;
-	
+
 	public Entrees(int EId, String EName, double EPrice) {
 		this.setEId(EId);
 		this.setEName(EName);

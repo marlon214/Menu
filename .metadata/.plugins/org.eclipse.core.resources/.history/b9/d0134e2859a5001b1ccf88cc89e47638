@@ -1,0 +1,15 @@
+package dao;
+
+import java.sql.Connection;
+
+public class AppetizersDAO {
+	private Connection connection;
+	private final String GetAppetizersQuery = "SELECT * FROM Appetizers"
+
+	public void AppetizerDao() {
+		connection = DBConnection.getConnection();
+		}
+	
+	public 
+	
+}

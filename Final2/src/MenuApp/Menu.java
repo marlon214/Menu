@@ -1,111 +1,143 @@
 package MenuApp;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import dao.AppetizersDAO;
+import dao.DessertsDAO;
+import dao.EntreesDAO;
+import entity.Appetizers;
+import entity.Desserts;
+import entity.Entrees;
+
 public class Menu {
+	private AppetizersDAO appetizerDao;
 	private Scanner scanner = new Scanner(System.in);
-	private List<String> options = Arrays.asList(
-			"Display Appetizer", "Create Appetizers", "Delete Appetizers",
-			"Display Entrees", "Create Entrees", "Delete Entrees",
-			"Display Desserts", "Create Desserts", "Delete Desserts");
-			
+	private List<String> options = Arrays.asList("Display Appetizer", "Create Appetizers", "Delete Appetizers",
+			"Display Entrees", "Create Entrees", "Delete Entrees", "Display Desserts", "Create Desserts",
+			"Delete Desserts");
+
 	public void start() {
 		// TODO Auto-generated method stub
 		String select = "";
 		do {
 			printMenu();
 			select = scanner.nextLine();
-			
-			if (select.equals("1")) {
-				displayAppetizers();
-			}
-			else if(select.equals("2")) {
-				createAppetizers();
-			}
-			else if(select.equals("3")) {
-				deleteAppetizers();
-			}
-			else if(select.equals("4")) {
-				displayEntrees();
-			}
-			else if(select.equals("5")) {
-				createEntrees();
-			}
-			else if (select.equals("6")) {
-				deleteEntrees();
-			}
-			else if (select.equals("7")) {
-				displayDesserts();
-			}
-			else if (select.equals("8")) {
-				createDesserts();
-			}
-			else if (select.equals("9")) {
-				deleteDesserts();
+			try {
+				if (select.equals("1")) {
+					displayAppetizers();
+				} else if (select.equals("2")) {
+					createAppetizers();
+				} else if (select.equals("3")) {
+					deleteAppetizers();
+				} else if (select.equals("4")) {
+					displayEntrees();
+				} else if (select.equals("5")) {
+					createEntrees();
+				} else if (select.equals("6")) {
+					deleteEntrees();
+				} else if (select.equals("7")) {
+					displayDesserts();
+				} else if (select.equals("8")) {
+					createDesserts();
+				} else if (select.equals("9")) {
+					deleteDesserts();
+				}
+			}catch (SQLException e) {
+				e.printStackTrace();
 			}
 			
 			System.out.println("");
-			
-			
+
 		} while (!select.equals("-1"));
-		
-		
-			
-		
+
 	}
 
 	private void deleteDesserts() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter dessert id to delete: ");
+		int id =Integer.parseInt(scanner.nextLine());
+		DessertsDAO.deleteDessert(id);
+
 	}
 
 	private void createDesserts() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter New Dessert name:");
+		String dessertName = scanner.nextLine();
+		System.out.println("Enter it's price: $");
+		double dessertPrice= scanner.nextDouble();
+		DessertsDAO.createDessert(dessertName, dessertPrice);
 	}
 
 	private void displayDesserts() {
 		// TODO Auto-generated method stub
-		
+		List<Desserts> desserts = DessertsDAO.getDesserts();
+		for (Desserts dessert : desserts) {
+			System.out.println(Desserts.getDId() + ": " + Desserts.getDName() + 
+					": " + Desserts.getDPrice());
+		}
 	}
 
 	private void deleteEntrees() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter Entree id to delete: ");
+		int id =Integer.parseInt(scanner.nextLine());
+		EntreesDAO.deleteEntree(id);
 	}
 
 	private void createEntrees() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter New Entree name:");
+		String entreeName = scanner.nextLine();
+		System.out.println("Enter it's price: $");
+		double entreePrice= scanner.nextDouble();
+		EntreesDAO.createEntree(entreeName, entreePrice);
 	}
 
 	private void displayEntrees() {
 		// TODO Auto-generated method stub
-		
+		List<Entrees> entrees = EntreesDAO.getEntrees();
+		for (Entrees entree : entrees) {
+			System.out.println(Entrees.getEId() + ": " + Entrees.getEName() + 
+					": " + Entrees.getEPrice());
+		}
 	}
 
 	private void deleteAppetizers() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter Appetizer id to delete: ");
+		int id =Integer.parseInt(scanner.nextLine());
+		AppetizersDAO.deleteAppetizer(id);
 	}
 
 	private void createAppetizers() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter New Appetizer name:");
+		String appetizerName = scanner.nextLine();
+		System.out.println("Enter it's price: $");
+		double appetizerPrice= scanner.nextDouble();
+		AppetizersDAO.createAppetizer(appetizerName, appetizerPrice);
 	}
 
-	private void displayAppetizers() {
+	private void displayAppetizers() throws SQLException {
 		// TODO Auto-generated method stub
+		List<Appetizers> appetizers = AppetizersDAO.displayAppetizers();
+		for (Appetizers appetizer : appetizers) {
+			System.out.println(Appetizers.getAId() + ": " + Appetizers.getAName() + 
+					": " + Appetizers.getAPrice());
+		}
 		
+
 	}
 
 	private void printMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("Please Select an Options:");
-		for (int i=0;i<options.size(); i++) {
-			System.out.println(i+1+ ". " + options.get(i));
+		for (int i = 0; i < options.size(); i++) {
+			System.out.println(i + 1 + ". " + options.get(i));
 		}
 	}
 

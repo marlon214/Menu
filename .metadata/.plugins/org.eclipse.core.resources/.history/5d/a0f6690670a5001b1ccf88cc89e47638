@@ -1,0 +1,33 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.Desserts;
+
+public class DessertsDAO {
+	private Connection connection;
+	private final String DISPLAY_DESSERTS_QUERY = "SELECT * FROM Desserts";
+	
+		public DessertsDAO() {
+			connection = DBConnection.getConnection();
+		}
+
+		public List<Desserts> displayDesserts() throws SQLException {
+			ResultSet rs = connection.prepareStatement(DISPLAY_DESSERTS_QUERY).executeQuery();
+			List<Desserts> desserts = new ArrayList<Desserts>();
+			
+			while(rs.next()) {
+				desserts.add(populateDesserts(rs.getInt(1), rs.getString(2), rs.getDouble(3)));
+			}
+			return desserts;
+			
+			
+	}
+		private Desserts populateDesserts(int id, String name, double price) {
+				return new Desserts(id, name, price);
+			}
+}

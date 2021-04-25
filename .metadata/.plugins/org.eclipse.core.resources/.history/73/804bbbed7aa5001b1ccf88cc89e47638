@@ -13,9 +13,12 @@ import entity.Desserts;
 import entity.Entrees;
 
 public class Menu {
-	private AppetizersDAO AppetizersDao;
-	private EntreesDAO EntreesDao;
-	private DessertsDAO DessertsDao;
+	private AppetizersDAO AppetizersDao= new AppetizersDAO();
+	private EntreesDAO EntreesDao= new EntreesDAO();
+	private DessertsDAO DessertsDao= new DessertsDAO();
+	private Appetizers appetizers = new Appetizers(0, null, 0);
+	private Entrees entrees = new Entrees(0, null, 0);
+	private Desserts desserts = new Desserts(0, null, 0);
 
 	private Scanner scanner = new Scanner(System.in);
 	private List<String> options = Arrays.asList("Display Appetizer", "Create Appetizers", "Delete Appetizers",
@@ -78,8 +81,8 @@ public class Menu {
 		// TODO Auto-generated method stub
 		List<Desserts> Desserts = DessertsDao.getDesserts();
 		for (Desserts dessert : Desserts) {
-			System.out.println(dessert.getDId() + ": " + dessert.getDName() + 
-					": " + dessert.getDPrice());
+			System.out.println(desserts.getDId() + ": " + desserts.getDName() + 
+					": " + desserts.getDPrice());
 		}
 	}
 
@@ -103,8 +106,8 @@ public class Menu {
 		// TODO Auto-generated method stub
 		List<Entrees> Entrees = EntreesDao.getEntrees();
 		for (Entrees entree : Entrees) {
-			System.out.println(entree.getEId() + ": " + entree.getEName() + 
-					": " + entree.getEPrice());
+			System.out.println(entrees.getEId() + ": " + entrees.getEName() + 
+					": " + entrees.getEPrice());
 		}
 	}
 
@@ -128,8 +131,8 @@ public class Menu {
 		// TODO Auto-generated method stub
 		List<Appetizers> Appetizers = AppetizersDao.getAppetizers();
 		for (Appetizers appetizer : Appetizers) {
-			System.out.println(appetizer.getAId() + ": " + appetizer.getAName() + 
-					": " + appetizer.getAPrice());
+			System.out.println(appetizers.getAId() + ": " + appetizers.getAName() + 
+					": " + appetizers.getAPrice());
 		}
 		
 

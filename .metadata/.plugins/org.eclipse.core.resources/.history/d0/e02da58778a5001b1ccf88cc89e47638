@@ -16,10 +16,7 @@ public class Menu {
 	private AppetizersDAO AppetizersDao= new AppetizersDAO();
 	private EntreesDAO EntreesDao= new EntreesDAO();
 	private DessertsDAO DessertsDao= new DessertsDAO();
-	private Appetizers appetizers = new Appetizers(0, null, 0);
-	private Entrees entrees = new Entrees(0, null, 0);
-	private Desserts desserts = new Desserts(0, null, 0);
-
+	
 	private Scanner scanner = new Scanner(System.in);
 	private List<String> options = Arrays.asList("Display Appetizer", "Create Appetizers", "Delete Appetizers",
 			"Display Entrees", "Create Entrees", "Delete Entrees", "Display Desserts", "Create Desserts",
@@ -60,79 +57,79 @@ public class Menu {
 
 	}
 
-	private void deleteDesserts() throws SQLException {
+	private void deleteDesserts() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter dessert id to delete: ");
 		int id =Integer.parseInt(scanner.nextLine());
-		DessertsDao.deleteDessert(id);
+		DessertsDAO.
 
 	}
 
-	private void createDesserts() throws SQLException {
+	private void createDesserts() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter New Dessert name:");
 		String dessertName = scanner.nextLine();
 		System.out.println("Enter it's price: $");
 		double dessertPrice= scanner.nextDouble();
-		DessertsDao.createDessert(dessertName, dessertPrice);
+		DessertsDAO.createDessert(dessertName, dessertPrice);
 	}
 
-	private void displayDesserts() throws SQLException {
+	private void displayDesserts() {
 		// TODO Auto-generated method stub
-		List<Desserts> Desserts = DessertsDao.getDesserts();
-		for (Desserts dessert : Desserts) {
-			System.out.println(desserts.getDId() + ": " + desserts.getDName() + 
-					": " + desserts.getDPrice());
+		List<Desserts> desserts = DessertsDAO.getDesserts();
+		for (Desserts dessert : desserts) {
+			System.out.println(Desserts.getDId() + ": " + Desserts.getDName() + 
+					": " + Desserts.getDPrice());
 		}
 	}
 
-	private void deleteEntrees() throws SQLException {
+	private void deleteEntrees() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter Entree id to delete: ");
 		int id =Integer.parseInt(scanner.nextLine());
-		EntreesDao.deleteEntree(id);
+		EntreesDAO.deleteEntree(id);
 	}
 
-	private void createEntrees() throws SQLException {
+	private void createEntrees() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter New Entree name:");
 		String entreeName = scanner.nextLine();
 		System.out.println("Enter it's price: $");
 		double entreePrice= scanner.nextDouble();
-		EntreesDao.createEntree(entreeName, entreePrice);
+		EntreesDAO.createEntree(entreeName, entreePrice);
 	}
 
-	private void displayEntrees() throws SQLException {
+	private void displayEntrees() {
 		// TODO Auto-generated method stub
-		List<Entrees> Entrees = EntreesDao.getEntrees();
-		for (Entrees entree : Entrees) {
-			System.out.println(entrees.getEId() + ": " + entrees.getEName() + 
-					": " + entrees.getEPrice());
+		List<Entrees> entrees = EntreesDAO.getEntrees();
+		for (Entrees entree : entrees) {
+			System.out.println(Entrees.getEId() + ": " + Entrees.getEName() + 
+					": " + Entrees.getEPrice());
 		}
 	}
 
-	private void deleteAppetizers() throws SQLException {
+	private void deleteAppetizers() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter Appetizer id to delete: ");
 		int id =Integer.parseInt(scanner.nextLine());
-		AppetizersDao.deleteAppetizer(id);
+		AppetizersDAO.deleteAppetizer(id);
 	}
 
-	private void createAppetizers() throws SQLException {
+	private void createAppetizers() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter New Appetizer name:");
 		String appetizerName = scanner.nextLine();
 		System.out.println("Enter it's price: $");
 		double appetizerPrice= scanner.nextDouble();
-		AppetizersDao.createAppetizer(appetizerName, appetizerPrice);
+		AppetizersDAO.createAppetizer(appetizerName, appetizerPrice);
 	}
 
 	private void displayAppetizers() throws SQLException {
 		// TODO Auto-generated method stub
-		List<Appetizers> Appetizers = AppetizersDao.getAppetizers();
-		for (Appetizers appetizer : Appetizers) {
-			System.out.println(appetizers.getAId() + ": " + appetizers.getAName() + 
-					": " + appetizers.getAPrice());
+		List<Appetizers> appetizers = AppetizersDAO.displayAppetizers();
+		for (Appetizers appetizer : appetizers) {
+			System.out.println(Appetizers.getAId() + ": " + Appetizers.getAName() + 
+					": " + Appetizers.getAPrice());
 		}
 		
 
